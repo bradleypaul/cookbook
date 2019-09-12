@@ -8,7 +8,7 @@
 /bazel-out
 
 # dependencies
-/frontend/node_modules
+/node_modules
 
 # profiling files
 chrome-profiler-events.json
@@ -46,8 +46,4 @@ testem.log
 Thumbs.db
 
 
-# Backend
-__pycache__
-.vscode
-.env
-.venv
+
