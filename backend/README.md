@@ -1,2 +1,7 @@
 # Recipes Backend
-## Cookbook project that stores recipes I have collected.
+## Cookbook backend for recipes I have collected
+
+Built with FlaskRESTful and SQLAlchemy
+
+Werkzeug for password hashing
+
