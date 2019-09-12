@@ -1,0 +1,54 @@
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+
+h2,
+h3 {
+  color: #7b1fa2;
+  font-weight: lighter;
+}
+
+body {
+  background: #181818;
+  display: block;
+  margin: 0px;
+  color: lightgray;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  color: #7b1fa2;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.form {
+  min-width: 150px !important;
+  max-width: 70% !important;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.header {
+  position: sticky;
+  width: 100%;
+  opacity: 1;
+  z-index: 5;
+  top: 0;
+}
+
+* {
+  font-family: Roboto,
+    "Helvetica Neue",
+    sans-serif;
+}

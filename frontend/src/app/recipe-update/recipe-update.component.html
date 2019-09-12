@@ -1,0 +1,25 @@
+<div *ngIf="recipe">
+  <h2>Update Recipe</h2>
+  <mat-form-field>
+    <input type="text" [(ngModel)]="nameString" placeholder="Name" matInput class="full-width" autofocus />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <textarea cdkTextareaAutosize cdkAutosizeMinRows="10" [(ngModel)]="ingredientString" placeholder="Ingredients"
+      matInput class="full-width">
+    </textarea>
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <textarea cdkTextareaAutosize cdkAutosizeMinRows="10" [(ngModel)]="instructionString" placeholder="Instructions"
+      matInput class="full-width">
+    </textarea>
+  </mat-form-field>
+  <br />
+  <button mat-button (click)="submit()">
+    Submit
+  </button>
+  <button mat-button (click)="goBack()">
+    Back
+  </button>
+</div>

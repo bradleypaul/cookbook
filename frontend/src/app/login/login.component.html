@@ -1,0 +1,11 @@
+<div (keydown.enter)="hitEnter($event)">
+    <mat-form-field>
+        <input type="text" [(ngModel)]="username" placeholder="Username" matInput autofocus />
+    </mat-form-field>
+    <mat-form-field>
+        <input type="password" [(ngModel)]="password" placeholder="Password" matInput />
+    </mat-form-field>
+    <button mat-button (click)="submit()">
+        Submit
+    </button>
+</div>

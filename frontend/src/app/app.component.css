@@ -1,0 +1,29 @@
+div {
+  text-align: left;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.flex-item {
+  height: auto;
+  min-width: 150px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.search {
+  float: right;
+  width: 50%;
+  font-size: 11pt;
+}
+
+mat-toolbar {
+  justify-content: space-between;
+}

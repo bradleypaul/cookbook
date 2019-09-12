@@ -1,0 +1,31 @@
+<div class="header">
+    <mat-toolbar>
+        <nav class="toolbar">
+            <a routerLink="/dashboard">
+                All Recipes
+            </a>
+            &nbsp;
+            <a routerLink="/new">
+                Create Recipe
+            </a>
+            &nbsp;
+            <a routerLink="/login">
+                Login
+            </a>
+        </nav>
+        <div style="width:50%;" (keydown.enter)="hitEnter($event)">
+            <mat-form-field class="search">
+                <input type="text" placeholder="Search" matInput max="20" [(ngModel)]="search" />
+            </mat-form-field>
+        </div>
+    </mat-toolbar>
+</div>
+
+<div class="container">
+    <div class="flex-item">
+        <router-outlet></router-outlet>
+    </div>
+    <span *ngIf="showMessages">
+        <app-messages></app-messages>
+    </span>
+</div>

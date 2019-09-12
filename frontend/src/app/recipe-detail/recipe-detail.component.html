@@ -1,0 +1,21 @@
+<div *ngIf="recipe">
+  <h2>{{recipe.name}}</h2>
+  <ul>
+    <li *ngFor="let item of recipe.ingredients">
+      <div>
+        {{item}}
+      </div>
+    </li>
+  </ul>
+  <div>
+    {{recipe.instructions}}
+  </div>
+  <br />
+  <button mat-button routerLink="/update/{{recipe.id}}">
+    Update
+  </button>
+  &nbsp;
+  <button mat-button (click)="deleteRecipe()">
+    Delete
+  </button>
+</div>
