@@ -24,7 +24,6 @@ db_session = session()
 def get_all_recipes():
     entries = []
     for entry in db_session.query(Recipes).order_by(Recipes.name).all():
-        print(entry.name)
         e = {
             'id': entry.id,
             'name': entry.name,
