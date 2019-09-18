@@ -22,6 +22,7 @@ div {
   float: right;
   width: 50%;
   font-size: 11pt;
+  color: lightgray;
 }
 
 mat-toolbar {
