@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from '../recipe';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from '@angular/router';
 
 import { RecipeService } from '../recipe.service';
 
@@ -24,7 +24,7 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   getRecipe(): void {
-    const id = parseInt(this.route.snapshot.paramMap.get('id'));
+    const id = parseInt(this.route.snapshot.paramMap.get('id'), 10);
     this.recipeService.getRecipe(id)
       .subscribe(recipe => {
         this.recipe = recipe;
@@ -32,7 +32,7 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   deleteRecipe() {
-    const id = parseInt(this.route.snapshot.paramMap.get('id'));
+    const id = parseInt(this.route.snapshot.paramMap.get('id'), 10);
     this.recipeService.deleteRecipe(id)
       .subscribe(() => window.location.href = '/dashboard');
   }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from './recipe';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
@@ -19,12 +19,12 @@ export class RecipeService {
 
   getRecipes(): Observable<Recipe[]> {
     this.log('HeroService: fetched heroes');
-    return this.http.get<Recipe[]>(this.recipeBaseUrl)
+    return this.http.get<Recipe[]>(this.recipeBaseUrl);
   }
 
   getRecipe(id: number): Observable<Recipe> {
     this.log(`HeroService: fetched hero id=${id}`);
-    return this.http.get<Recipe>(`${this.recipeBaseUrl}/${id}`)
+    return this.http.get<Recipe>(`${this.recipeBaseUrl}/${id}`);
   }
 
   createRecipe(recipe: Recipe): Observable<void> {
@@ -32,7 +32,7 @@ export class RecipeService {
   }
 
   updateRecipe(recipe: Recipe): Observable<void> {
-    const updateUrl = `${this.recipeBaseUrl}/${recipe.id}`
+    const updateUrl = `${this.recipeBaseUrl}/${recipe.id}`;
     return this.http.put<void>(updateUrl, recipe);
   }
 
@@ -41,6 +41,6 @@ export class RecipeService {
   }
 
   private log(message: string) {
-    this.messageService.add(`recipe service: ${message}`)
+    this.messageService.add(`recipe service: ${message}`);
   }
 }
