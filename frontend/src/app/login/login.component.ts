@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from '../user.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-login',
@@ -8,18 +10,23 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class LoginComponent implements OnInit {
 
-  @Input() username: string;
-  @Input() password: string;
-  constructor() { }
+  @Input() user: User = new User();
+  constructor(
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
   }
 
-  submit() {
-    alert(`Submitted! ${this.username} : ${this.password}`);
+  submit(): void {
+    alert(`Submitted! ${this.user.username} : ${this.user.password}`);
+    this.userService.isUser(this.user)
+      .subscribe(valid => {
+        alert(`user exists & is valid ${valid}`);
+      });
   }
 
-  hitEnter(event) {
+  hitEnter(): void {
     this.submit();
   }
 }

@@ -1,9 +1,10 @@
-<div (keydown.enter)="hitEnter($event)">
+<div (keydown.enter)="hitEnter()">
     <mat-form-field>
-        <input type="text" [(ngModel)]="username" placeholder="Username" matInput autofocus />
+        <input type="text" [(ngModel)]="user.username" placeholder="Username" matInput autofocus />
     </mat-form-field>
     <mat-form-field>
-        <input type="password" [(ngModel)]="password" placeholder="Password" matInput />
+        <input [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" placeholder="Password" matInput />
+        <mat-icon matSuffix (click)="hide = !hide">{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </mat-form-field>
     <button mat-button (click)="submit()">
         Submit
