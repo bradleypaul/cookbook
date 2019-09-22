@@ -27,6 +27,8 @@ class Recipes(Resource):
         '''
 
         try:
+            print(request.data)
+            print(request.json)
             info = loads(request.data.decode())
             db.create_recipe(**info)
         except decoder.JSONDecodeError as e:
@@ -68,10 +70,28 @@ class User(Resource):
     def get(self):
         return 'got'
 
+    # is valid user
     def post(self):
-        return 'posted'
+        try:
+            user = loads(request.data.decode())
+            return db.is_user(**user)
+        except decoder.JSONDecodeError as e:
+            return f'Error decoding json ({str(e)})', 500
+        else:
+            return None, 204
 
-    ''' Add put for updating user '''
+    # create user
+    # def post(self):
+    #     try:
+    #         info = loads(request.data.decode())
+    #         db.create_user(**info)
+    #     except decoder.JSONDecodeError as e:
+    #         return f'Error decoding json ({str(e)})', 500
+    #     else:
+    #         return None, 204
+
+    def put(self):
+        return 'put'
 
 
 api.add_resource(Recipes, '/')
