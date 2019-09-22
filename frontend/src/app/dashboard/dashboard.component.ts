@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from '../recipe';
-import { RecipeService } from '../recipe.service'
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +10,9 @@ import { RecipeService } from '../recipe.service'
 
 export class DashboardComponent implements OnInit {
   recipes: Recipe[] = [];
+  saved: Recipe[];
+
+  @Input() searchTerm: string;
 
   constructor(private recipeService: RecipeService) { }
 
@@ -21,6 +24,19 @@ export class DashboardComponent implements OnInit {
     this.recipeService.getRecipes()
       .subscribe(recipes => {
         this.recipes = recipes;
+        this.saved = recipes;
       });
+  }
+
+  resetRecipes(): void {
+    this.recipes = this.saved;
+  }
+
+  filterRecipes(): void {
+    this.resetRecipes();
+    this.recipes.filter(item => {
+      return item.name.toLowerCase()
+        .includes(this.searchTerm.toLowerCase());
+    });
   }
 }

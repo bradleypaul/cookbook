@@ -15,7 +15,10 @@
         </nav>
         <div style="width:50%;" (keydown.enter)="hitEnter($event)">
             <mat-form-field class="search">
-                <input type="text" placeholder="Search" matInput max="20" [(ngModel)]="search" />
+                <input type="text" placeholder="Search" matInput max="20" [(ngModel)]="searchString" />
+                <mat-icon matSuffix (click)="search()">
+                    search
+                </mat-icon>
             </mat-form-field>
         </div>
     </mat-toolbar>

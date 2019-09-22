@@ -9,8 +9,15 @@ import { environment } from '../environments/environment';
 export class AppComponent {
   title = 'Cookbook';
   showMessages = environment.showMessages;
-  search: string;
+  searchString = '';
   hitEnter(event) {
-    alert(`Searching for ${this.search}`);
+    this.search();
+  }
+  search() {
+    alert(`Searching for ${this.searchString}`);
   }
 }
+
+// move search functionality to it's own component
+// same for the nav bar
+// autohide search on narrow screens and have search glyph as a show

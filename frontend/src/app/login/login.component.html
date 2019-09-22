@@ -4,7 +4,9 @@
     </mat-form-field>
     <mat-form-field>
         <input [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" placeholder="Password" matInput />
-        <mat-icon matSuffix (click)="hide = !hide">{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-icon matSuffix (click)="hide = !hide">
+            {{!hide ? 'visibility_off' : 'visibility'}}
+        </mat-icon>
     </mat-form-field>
     <button mat-button (click)="submit()">
         Submit
