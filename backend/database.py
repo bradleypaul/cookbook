@@ -73,16 +73,16 @@ def delete_recipe(id: int):
     return None, 204
 
 
-def create_user(username, email, password):
-    user = User(username=username, email=email)
+def create_user(username, password):
+    user = User(username=username)
     user.set_password(password)
     db_session.add(user)
     db_session.commit()
 
 
-def is_user(username, email, password):
+def is_user(username, password):
     if username:
-        user = db_session.query(User).get(username)
+        user = db_session.query(User).filter_by(username=username).first()
         if user is not None:
             if user.check_password(password):
                 return True, 200
