@@ -1,5 +1,7 @@
 @import "~@angular/material/prebuilt-themes/purple-green.css";
 
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 h2,
 h3 {
   color: #7b1fa2;
