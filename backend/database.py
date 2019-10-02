@@ -78,6 +78,7 @@ def create_user(username, password):
     user.set_password(password)
     db_session.add(user)
     db_session.commit()
+    return True, 204
 
 
 def is_user(username, password):

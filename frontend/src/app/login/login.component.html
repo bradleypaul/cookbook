@@ -1,4 +1,5 @@
 <div (keydown.enter)="hitEnter()">
+    <h2>Login</h2>
     <mat-form-field>
         <input type="text" [(ngModel)]="user.username" placeholder="Username" matInput autofocus />
     </mat-form-field>
@@ -11,4 +12,7 @@
     <button mat-button (click)="submit()">
         Submit
     </button>
+    <br />
+    <br />
+    <a routerLink="/signup">Sign up</a>
 </div>

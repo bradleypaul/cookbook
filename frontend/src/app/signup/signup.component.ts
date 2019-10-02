@@ -3,12 +3,12 @@ import { UserService } from '../user.service';
 import { User } from '../user';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
 
-export class LoginComponent implements OnInit {
+export class SignupComponent implements OnInit {
   hide = true;
   @Input() user: User = new User();
 
@@ -21,13 +21,9 @@ export class LoginComponent implements OnInit {
 
   submit(): void {
     alert(`Submitted! ${this.user.username} : ${this.user.password}`);
-    this.userService.isUser(this.user)
+    this.userService.createUser(this.user)
       .subscribe(valid => {
         alert(`user exists & is valid ${valid}`);
       });
-  }
-
-  hitEnter(): void {
-    this.submit();
   }
 }

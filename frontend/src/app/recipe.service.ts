@@ -10,7 +10,8 @@ import { environment } from '../environments/environment';
 })
 export class RecipeService {
 
-  private recipeBaseUrl = environment.url;
+  private recipesBaseUrl = `${environment.url}/recipes`;
+  private recipeBaseUrl = `${environment.url}/recipe`;
 
   constructor(
     private http: HttpClient,
@@ -19,7 +20,7 @@ export class RecipeService {
 
   getRecipes(): Observable<Recipe[]> {
     this.log('HeroService: fetched heroes');
-    return this.http.get<Recipe[]>(this.recipeBaseUrl);
+    return this.http.get<Recipe[]>(this.recipesBaseUrl);
   }
 
   getRecipe(id: number): Observable<Recipe> {
@@ -28,7 +29,7 @@ export class RecipeService {
   }
 
   createRecipe(recipe: Recipe): Observable<void> {
-    return this.http.post<void>(this.recipeBaseUrl, recipe);
+    return this.http.post<void>(this.recipesBaseUrl, recipe);
   }
 
   updateRecipe(recipe: Recipe): Observable<void> {

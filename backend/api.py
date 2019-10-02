@@ -66,11 +66,7 @@ class Recipe(Resource):
         return db.delete_recipe(recipe_id)
 
 
-class User(Resource):
-    def get(self):
-        return 'got'
-
-    # is valid user
+class Login(Resource):
     def post(self):
         try:
             user = loads(request.data.decode())
@@ -80,23 +76,22 @@ class User(Resource):
         else:
             return None, 204
 
-    # create user
-    # def post(self):
-    #     try:
-    #         info = loads(request.data.decode())
-    #         db.create_user(**info)
-    #     except decoder.JSONDecodeError as e:
-    #         return f'Error decoding json ({str(e)})', 500
-    #     else:
-    #         return None, 204
 
-    def put(self):
-        return 'put'
+class Signup(Resource):
+    def post(self):
+        try:
+            info = loads(request.data.decode())
+            db.create_user(**info)
+        except decoder.JSONDecodeError as e:
+            return f'Error decoding json ({str(e)})', 500
+        else:
+            return None, 204
 
 
-api.add_resource(Recipes, '/')
-api.add_resource(Recipe, '/<int:recipe_id>')
-api.add_resource(User, '/login')
+api.add_resource(Recipes, '/recipes')
+api.add_resource(Recipe, '/recipe/<int:recipe_id>')
+api.add_resource(Login, '/login')
+api.add_resource(Signup, '/signup')
 
 if __name__ == "__main__":
     app.run(debug=True)
